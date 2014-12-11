@@ -1,0 +1,50 @@
+<template name="ContestantPage">
+	<div class="page-header">
+		<h1>{{name}}</h1>
+		<h2 id="score"> YOUR SCORE:{{myScore}} </h2>
+	</div>
+	{{>Contestant this}}
+</template>
+<template name="Contestant">
+	
+	{{#if timeLeft}}
+	<div id="timer" class="well">
+
+			<div class="progress">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="{{percentLeft}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentLeft}}%;">
+			    {{timeLeft}} seconds left
+			  </div>
+			</div>
+		{{#unless timeLeft}}
+			Time's up!
+		{{/unless}}
+
+	</div>
+	{{/if}}
+	{{#if question}}
+	<div id="question" class="well">
+		<p> Question: {{question}} </p>
+		<div class="well fade in">
+		{{#each this.currentQuestion.clues}}
+			<p>* {{this}}</p>
+		{{/each}}
+		</div>
+		{{#if this.currentQuestion.answer}}
+		<div id="answer" class="well">
+			<p>Answer: {{this.currentQuestion.answer}}</p>
+		</div>
+		{{/if}}
+		{{#if running}}
+		<div class="center-div">
+		<button type="button" id="answer-button"  class="btn btn-success btn-lg btn-block">Answer</button>
+		</div>
+		{{/if}}
+		{{#if this.answeredBy}}
+			<div class="center-div">
+			<p>Answered by: {{answerer.username}}</p>
+			</div>
+		{{/if}}
+		
+	</div>
+	{{/if}}
+</template>

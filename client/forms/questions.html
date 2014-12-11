@@ -1,0 +1,15 @@
+<template name="insertQuestionForm">
+  {{> quickForm collection="Question" id="insertQuestionForm" type="insert" buttonClasses="glyphicon glyphicon-ok btn btn-default" buttonContent=" " omitFields="game_id, order"}}
+</template>
+
+
+<template name="updateQuestionForm">
+  {{> quickForm collection="Question" id="updateQuestionForm" type="update" doc=this buttonClasses="glyphicon glyphicon-ok btn btn-default" buttonContent=" " fields="question, answer, clues, moreinfo" }}
+</template>
+
+
+<template name="deleteQuestionButton">
+			{{> quickRemoveButton collection="Question" _id=this._id onError=onError onSuccess=onSuccess beforeRemove=beforeRemove class="btn btn-danger"}}
+</template>
+
+

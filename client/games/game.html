@@ -1,0 +1,88 @@
+<template name="Game">
+	<div class="page-header">
+		<h1>
+			{{this.name}}
+			<small>
+				{{#each scores}}
+				{{username userId}}: {{score}}
+				{{/each}}
+			</small>
+		</h1>
+	</div>
+
+	<div id="master-panel">
+	{{#if active}}
+		{{> ActiveGame this}}
+	{{/if}}
+	{{#unless active}}
+		Sorry, we're not ready for you yet!
+	{{/unless}}
+	</div>
+	<div id="contestant-panel">
+		{{> Contestant}}
+	</div>
+</template>
+
+
+<template name="EditGame">
+	{{> updateGameForm }}
+</template>
+
+<template name="modalInsertQuestionForm">
+	<div class="modal fade" id="insert-question">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title">New Question</h4>
+	      </div>
+	      <div class="modal-body">
+	        {{> insertQuestionForm}}
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+</template>
+
+<template name="ActiveGame">
+	<div  class="well">
+		<div class="well center-div">
+			<button class="btn" id="reset-question">Reset</button>
+			{{#if moreQuestions }}
+			<button class="btn" id="next-question">Next Question</button>
+			{{/if}}
+			{{#if clues}}
+			<button class="btn" id="next-clue">Next Clue</button>
+			{{/if}}
+			<button class="btn" id="reveal-answer">Reveal Answer</button>
+		</div>
+		
+		{{#if answeredBy}}
+		<div class="well center-div">
+			<button class="btn btn-danger" id="wrong-answer">-1  to {{answerer}}</button>
+			<button class="btn btn-success" id="correct-answer">+1 to {{answerer}}</button>
+		</div>
+		{{/if}}
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#insert-question" aria-expanded="true" aria-controls="demo">
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	</button>
+		{{> modalInsertQuestionForm }}
+		{{#with fullQuestion}}
+			{{> ActiveQuestion this}}
+		{{/with}}
+	</div>
+	<div class="well">
+		<ol class="list-group">
+			{{#each questions}}
+			<li class="list-group-item {{activeQuestion this}}">
+				{{question}} {{ order }}
+				<span>{{> deleteQuestionButton this}}</span>
+			</li>
+			{{/each}}
+		</ol>
+	</div>
+</template>

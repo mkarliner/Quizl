@@ -1,0 +1,32 @@
+<template name="Questions">
+	<h1>Questions for: {{name}}</h1>
+	
+	{{> insertQuestionForm}}
+
+	<ol class="list-group">
+		{{#each questions}}
+			<li class="list-group-item" id="this._id">
+				
+				{{question}}
+				{{#if isInRole 'quizmaster'}}
+			    	<span class="badge active"><a href="/games/{{this._id}}/edit">Edit</a></span>
+					<span class="badge active"><a href="/games/{{this._id}}/questions">Questions</a></span>
+			  	 {{/if}}
+				 
+			</li>
+		{{/each}}
+	</ol>
+
+</template>
+
+
+<template name="ActiveQuestion">
+	<div class="well" >
+
+		{{> updateQuestionForm }}
+		{{#quickRemoveButton collection="Question" _id=this._id onError=onError onSuccess=onSuccess beforeRemove=beforeRemove class="btn btn-danger"}}
+			<span class="glyphicon glyphicon-trash btn" aria-hidden="true"></span>
+		{{/quickRemoveButton}}
+	</div>
+</template>
+

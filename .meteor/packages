@@ -1,0 +1,23 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+autopublish
+insecure
+aldeed:autoform
+accounts-password
+iron:router
+aldeed:simple-schema
+aldeed:collection2
+aldeed:delete-button
+alanning:roles
+cfs:gridfs
+cfs:autoform
+accounts-base
+mizzao:bootstrap-3
+steeve:single-page-login
+brentjanderson:buzz
+mrt:mongo-counter
+

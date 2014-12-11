@@ -1,0 +1,35 @@
+<template name="AdminGames">
+<div>
+	{{> insertGameForm }}
+</div>
+ {{> GameList}}
+	
+</template>
+
+
+<template name="Games">
+	<h1>Join a Game</h1>
+ {{> GameList}}
+	
+</template>
+
+
+<template name="GameList">
+	<ol class="list-group">
+		{{#each this}}
+			<li class="list-group-item" id="this._id">
+				
+				{{name}}
+				{{#each members}} 
+					<span class="badge">{{username}}</span>
+					{{/each}}
+					{{#if isInRole 'quizmaster'}}
+			    	<span class="badge active"><a href="/games/{{this._id}}/edit">Edit</a></span>
+					<span class="badge active"><a href="/games/{{this._id}}/questions">Questions</a></span>
+			  	  {{/if}}
+				 
+			</li>
+		{{/each}}
+	</ol>
+	
+</template>

@@ -1,0 +1,8 @@
+<template name="insertGameForm">
+  {{> quickForm collection="Games" id="insertGameForm" type="insert" buttonClasses="glyphicon glyphicon-ok btn btn-default" buttonContent=" " omitFields="members, status, image"}}
+</template>
+
+
+<template name="updateGameForm">
+  {{> quickForm collection="Games" id="updateGameForm" type="update" doc=this buttonClasses="glyphicon glyphicon-ok btn btn-default" buttonContent=" " omitFields="" }}
+</template>

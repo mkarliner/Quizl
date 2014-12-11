@@ -1,0 +1,1 @@
+Scores = new Mongo.Collection("scores");

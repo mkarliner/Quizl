@@ -1,0 +1,1 @@
+// quizStream = new Meteor.Stream('quiz');

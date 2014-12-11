@@ -1,0 +1,38 @@
+
+<head>
+	<meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+	
+</body>
+
+
+<template name="MainLayout">
+	
+  
+
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+	
+	
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				{{> nav }}
+			</div>
+			<div class="col-md-12 column">
+				{{> yield}}
+			</div>
+		</div>
+	</div>
+	
+
+  <footer>
+    {{> yield "footer"}}
+  </footer>
+  
+  
+</template>
