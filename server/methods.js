@@ -2,6 +2,7 @@ var timerId;
 
 Meteor.methods({
 	resetGame: function(gameId) {
+		console.log("RESET: ", gameId);
 		Games.update({_id: gameId}, {$set: {currentQuestion:  null, timeLeft: 0,  questionState: 'Idle',answeredBy: null}});
 		Scores.update({gameId: gameId}, {$set: {score: 0}});
 	},

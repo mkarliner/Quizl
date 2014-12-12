@@ -44,7 +44,11 @@ html {
 	font-height: 1.5em;
 }
 
-
+.btn-tick {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
 
 p {
 	font-family: 'Courier';
@@ -52,11 +56,12 @@ p {
 }
 
 
-.center-div .page-header {
+.center-div {
 	text-align: center;
 }
 
-.page-header {
+
+.cont-header {
 	text-align: center;
 }
 .well {

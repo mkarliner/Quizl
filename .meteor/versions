@@ -3,10 +3,10 @@ accounts-password@1.0.4
 accounts-ui-unstyled@1.1.4
 accounts-ui@1.1.3
 alanning:roles@1.2.13
-aldeed:autoform@4.0.7
+aldeed:autoform@4.2.0
 aldeed:collection2@2.2.0
 aldeed:delete-button@1.0.0
-aldeed:simple-schema@1.1.0
+aldeed:simple-schema@1.2.0
 application-configuration@1.0.3
 autopublish@1.0.1
 autoupdate@1.1.3
@@ -17,7 +17,7 @@ blaze@2.0.3
 boilerplate-generator@1.0.1
 brentjanderson:buzz@1.1.7
 callback-hook@1.0.1
-cfs:autoform@2.0.0
+cfs:autoform@2.1.0
 cfs:base-package@0.0.0
 cfs:gridfs@0.0.0
 cfs:storage-adapter@0.0.0
@@ -25,7 +25,7 @@ check@1.0.2
 coffeescript@1.0.4
 ctl-helper@1.0.4
 ctl@1.0.2
-ddp@1.0.11
+ddp@1.0.12
 deps@1.0.5
 ejson@1.0.4
 email@1.0.4
@@ -60,7 +60,7 @@ minimongo@1.0.5
 mizzao:bootstrap-3@3.3.1_1
 mobile-status-bar@1.0.1
 mongo-livedata@1.0.6
-mongo@1.0.8
+mongo@1.0.9
 mrt:moment@2.6.0
 mrt:mongo-counter@1.1.0
 npm-bcrypt@0.7.7

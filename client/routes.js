@@ -29,8 +29,7 @@ Router.route('/start', function() {
 
 
 Router.route('/', function() {
-	this.layout('ContestantLayout');
-	this.render('Start');
+	Router.go('/start');
 });
 
 Router.route('/dashboard', function() {
@@ -92,6 +91,18 @@ Router.route('/games/:id/questions', function() {
 Router.route("/contestant/:id", function(){
 	this.layout('ContestantLayout');
 	this.render("ContestantPage", {
+		data: function(){ 
+			game = Games.findOne({
+				_id: this.params.id
+			});
+			Session.set("currentGame", this.params.id);
+			return game;
+		}
+	});
+});
+
+Router.route("/scoreboard/:id", function(){
+	this.render("Scoreboard", {
 		data: function(){ 
 			game = Games.findOne({
 				_id: this.params.id

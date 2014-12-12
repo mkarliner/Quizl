@@ -27,7 +27,11 @@ Template.Contestant.helpers({
 			this.currentQuestion.answer;
 		}
 	},
-	
+	totClues: function(){
+		if(this.currentQuestion.totClues ){
+			return this.currentQuestion.totClues + " clues";
+		}
+	},
 	percentLeft: function() {
 		//console.log("left ",this.timeLeft);
 		return (this.timeLeft/this.maxTime)*100;

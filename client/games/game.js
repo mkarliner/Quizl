@@ -78,6 +78,7 @@ Template.Game.events({
 		q.answer = null;
 		clues = q.clues;
 		q.clues = [];
+		q.totClues = clues ? clues.length : null;
 		Games.update({_id: game._id}, {$set: {
 			currentQuestion:  q, timeLeft: 
 			game.maxTime, questionState: 'Idle', 

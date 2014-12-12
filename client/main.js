@@ -13,6 +13,7 @@ Meteor.startup(function () {
 				Sounds['ding'].play();
 			}
 			if(fields.answeredBy != null) {
+				console.log("Answered!");
 				Sounds['doorbell'].play();
 			}
 			if(fields.timeLeft == 0) {

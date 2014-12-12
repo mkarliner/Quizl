@@ -1,5 +1,5 @@
 <template name="ContestantPage">
-	<div class="page-header">
+	<div class="cont-header">
 		<h1>{{name}}</h1>
 		<h2 id="score"> YOUR SCORE:{{myScore}} </h2>
 	</div>
@@ -25,6 +25,7 @@
 	<div id="question" class="well">
 		<p> Question: {{question}} </p>
 		<div class="well fade in">
+		<p>{{totClues}}</p>
 		{{#each this.currentQuestion.clues}}
 			<p>* {{this}}</p>
 		{{/each}}
