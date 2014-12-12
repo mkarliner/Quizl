@@ -1,6 +1,10 @@
 Sounds = []
 
 Meteor.startup(function () {
+
+  });
+  
+
 	Sounds['klaxon'] = new buzz.sound('/sounds/klaxon.mp3');
 	Sounds['boing'] = new buzz.sound('/sounds/boing.mp3');
 	Sounds['ding'] = new buzz.sound('/sounds/ding.mp3');
@@ -23,9 +27,8 @@ Meteor.startup(function () {
 			
 		}
 	});
-   
-  });
-  
+
+
 //
 // quizStream.on("question", function(msg){
 // 	Session.set("currentQuestion", msg)
