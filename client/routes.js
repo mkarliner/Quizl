@@ -35,13 +35,14 @@ Router.route('/', function() {
 	Router.go('/start');
 });
 
-Router.route('/dashboard', function() {
-	this.render('Dashboard');
+Router.route('/scoreboard', function() {
+	this.render('Scoreboard');
 });
 
 Router.route('/people', function() {
 	this.render('People', {
 		data: function() {
+			console.log("People");
 			return Meteor.users.find({});
 		}
 	});

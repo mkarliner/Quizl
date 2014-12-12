@@ -1,0 +1,14 @@
+<template name="Scoreboard">
+	
+	<div class="page-header">
+		<h1>{{name}}</h1>
+		<table>
+			{{#each members}}
+			<tr >
+				<td class="score">{{username}}</td>
+				<td>{{score this}}</td>
+			</tr>
+			{{/each}}
+		</table>
+	</div>
+</template>
