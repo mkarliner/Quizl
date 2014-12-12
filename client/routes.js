@@ -22,13 +22,16 @@ Router.route('/start', function() {
 	this.layout('ContestantLayout');
 	this.render('Start', {
 		data: function() {
-			return Games.find({});
+			games =  Games.find({});
+			console.log("GAMES: ", games);
+			return games;
 		}
 	});
 });
 
 
 Router.route('/', function() {
+	this.layout('ContestantLayout');
 	Router.go('/start');
 });
 
