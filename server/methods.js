@@ -41,5 +41,9 @@ Meteor.methods({
 		rank = incrementCounter("questionCounter");
 		console.log("Rank ", rank)
 		return rank;
+	},
+	promoteUser: function(userId) {
+		console.log("Promote", userId);
+		Roles.addUsersToRoles(userId, ['quizmaster']);
 	}
 });

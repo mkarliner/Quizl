@@ -28,7 +28,9 @@ Meteor.startup(function () {
 		}
 	});
 
-
+	Tracker.autorun(function () {
+	    Meteor.subscribe("allUserData");
+	});
 //
 // quizStream.on("question", function(msg){
 // 	Session.set("currentQuestion", msg)

@@ -1,5 +1,11 @@
 Router.configure({
-	layoutTemplate: 'ContestantLayout'
+	layoutTemplate: function() {
+		if (Roles.userIsInRole(Meteor.userId(), "quizmaster")) {
+			return 'QuizmasterLayout';
+		} else {
+			return 'ContestantLayout';
+		}
+	}
 });
 
 
@@ -17,12 +23,10 @@ Router.configure({
 
 
 
-
 Router.route('/start', function() {
-	this.layout('ContestantLayout');
 	this.render('Start', {
 		data: function() {
-			games =  Games.find({});
+			games = Games.find({});
 			console.log("GAMES: ", games);
 			return games;
 		}
@@ -39,7 +43,7 @@ Router.route('/scoreboard', function() {
 	this.render('Scoreboard');
 });
 
-Router.route('/people', function() {
+Router.route('/admin/people', function() {
 	this.render('People', {
 		data: function() {
 			console.log("People");
@@ -92,10 +96,10 @@ Router.route('/games/:id/questions', function() {
 	});
 });
 
-Router.route("/contestant/:id", function(){
+Router.route("/contestant/:id", function() {
 	this.layout('ContestantLayout');
 	this.render("ContestantPage", {
-		data: function(){ 
+		data: function() {
 			game = Games.findOne({
 				_id: this.params.id
 			});
@@ -105,9 +109,9 @@ Router.route("/contestant/:id", function(){
 	});
 });
 
-Router.route("/scoreboard/:id", function(){
+Router.route("/scoreboard/:id", function() {
 	this.render("Scoreboard", {
-		data: function(){ 
+		data: function() {
 			game = Games.findOne({
 				_id: this.params.id
 			});

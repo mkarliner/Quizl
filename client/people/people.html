@@ -1,8 +1,15 @@
 <template name="People">
-	<table class="table">
+	<table class="table table-striped table-bordered">
+	    <tr>
+	        <th>Username</th><th>Roles</th>
+	    </tr>
 	{{#each this}}
-	<tr class="">
-		<td>{{username}}</td><td> {{roles}}</td>
+	<tr>
+		<td>{{username}}</td>
+		<td> {{roles}}</td>
+		<td>
+		    <button class="btn" id="promote-btn">Promote</button>
+		</td>
 	</tr>
 	{{/each}}
 	</table>
