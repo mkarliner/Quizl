@@ -1,5 +1,7 @@
 Router.configure({
+
 	layoutTemplate: function() {
+		console.log("LO: ", (Roles.userIsInRole(Meteor.userId(), "quizmaster")));
 		if (Roles.userIsInRole(Meteor.userId(), "quizmaster")) {
 			return 'QuizmasterLayout';
 		} else {
