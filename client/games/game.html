@@ -18,9 +18,9 @@
 		Sorry, we're not ready for you yet!
 	{{/unless}}
 	</div>
-	<div id="contestant-panel">
+	<!-- <div id="contestant-panel">
 		{{> Contestant}}
-	</div>
+	</div> -->
 </template>
 
 
@@ -41,7 +41,27 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div>
+</template>
+
+<template name="modalEditQuestionForm">
+	<div class="modal fade" id="edit-question">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title">Edit Question</h4>
+	      </div>
+	      <div class="modal-body">
+	        {{> updateQuestionForm}}
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 	      </div>
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
@@ -49,16 +69,30 @@
 </template>
 
 <template name="ActiveGame">
+	{{#if timeLeft}}
+	<div id="timer" class="">
+
+			<div class="progress">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="{{percentLeft}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentLeft}}%;">
+			    {{timeLeft}} seconds left
+			  </div>
+			</div>
+		{{#unless timeLeft}}
+			Time's up!
+		{{/unless}}
+
+	</div>
+	{{/if}}
 	<div  class="well">
 		<div class="well center-div">
-			<button class="btn" id="reset-question">Reset</button>
+			<button class="btn btn-danger" id="reset-question">Reset Game</button>
 			{{#if moreQuestions }}
-			<button class="btn" id="next-question">Next Question</button>
+			<button class="btn btn-primary" id="next-question">Next Question</button>
 			{{/if}}
 			{{#if clues}}
-			<button class="btn" id="next-clue">Next Clue</button>
+			<button class="btn btn-info" id="next-clue">Next Clue</button>
 			{{/if}}
-			<button class="btn" id="reveal-answer">Reveal Answer</button>
+			<button class="btn btn-warning" id="reveal-answer">Reveal Answer</button>
 		</div>
 		
 		{{#if answeredBy}}
@@ -68,19 +102,42 @@
 		</div>
 		{{/if}}
 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#insert-question" aria-expanded="true" aria-controls="demo">
-		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		<!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->New Question
+	</button>
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit-question" aria-expanded="true" aria-controls="demo">
+		<!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->Edit Current Question
 	</button>
 		{{> modalInsertQuestionForm }}
+		
 		{{#with fullQuestion}}
-			{{> ActiveQuestion this}}
+			{{> modalEditQuestionForm }}
+			<div id="question" class="well">
+				<p> Question: {{question}} </p>
+				<div class="well fade in">
+				<p >{{totClues}}</p>
+				{{#each this.clues}}
+					<p class={{clueHidden this ..}}>* {{this}}</p>
+				{{/each}}
+				</div>
+				<div id="answer" class="well">
+					<p>Answer: {{this.currentQuestion.answer}}</p>
+				</div>
+
+				{{#if this.answeredBy}}
+					<div class="center-div">
+					<p>Answered by: {{answerer.username}}</p>
+					</div>
+				{{/if}}
+		
+			</div>
 		{{/with}}
 	</div>
 	<div class="well">
 		<ol class="list-group">
 			{{#each questions}}
-			<li class="list-group-item {{activeQuestion this}}">
-				{{question}} {{ order }}
-				<span>{{> deleteQuestionButton this}}</span>
+			<li class="list-group-item clearfix {{activeQuestion this}}">
+				<span>{{question}} {{ order }}</span>
+				<span class="pull-right list-group-btn">{{> deleteQuestionButton this}}</span>
 			</li>
 			{{/each}}
 		</ol>

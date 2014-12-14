@@ -151,6 +151,10 @@ Template.ActiveGame.helpers({
 		}
 		
 	},
+	percentLeft: function() {
+		//console.log("left ",this.timeLeft);
+		return (this.timeLeft/this.maxTime)*100;
+	},
 	activeQuestion: function(q) {
 		game = Games.findOne({_id: this.game_id});
 		if(game.currentQuestion && q._id == game.currentQuestion._id) {
@@ -181,9 +185,17 @@ Template.ActiveGame.helpers({
 		} else {
 			return [];
 		}
-		
 	}, 
-
+	clueHidden: function(str, question){
+		console.log("CMP: ", this, str, question);
+		game = Games.findOne(question.game_id);
+		for(var i=0; i<game.currentQuestion.clues.length; i++) {
+			if(game.currentQuestion.clues[i]==str) {
+				return "";
+			}
+		}
+		return "hidden-clue"
+	}
 	
 	
 });

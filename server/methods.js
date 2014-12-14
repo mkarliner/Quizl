@@ -30,7 +30,7 @@ Meteor.methods({
 	joinGame: function(gameId) {
 			console.log("JG: ", gameId);
 			n = Games.update({_id: gameId}, {$addToSet: {members: this.userId}});
-			Scores.upsert({gameId: gameId, userId: this.userIdß}, {$set: {userId: this.userId, score: 0, gameId: gameId}});
+			Scores.upsert({gameId: gameId, userId: this.userId}, {$set: {userId: this.userId, score: 0, gameId: gameId}});
 			console.log("JG: ", n, gameId, this.userId)
 	},
 	changeScore: function(gameId, userId, amount) {

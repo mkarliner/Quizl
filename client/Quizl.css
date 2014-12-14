@@ -16,7 +16,7 @@ html {
 
 
 #master-panel {
-	width: 50%;
+	width: 100%;
 	display: block;
 	float: left;
 }
@@ -68,6 +68,14 @@ p {
 	background: white;
 }
 
+.list-group-btn {
+	float: right;
+}
+
+.hidden-clue {
+	font-color: gray;
+	color: gray;
+}
 
 /*!
  * bootswatch v3.3.1+2

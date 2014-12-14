@@ -4,11 +4,11 @@ Template.Questions.helpers({
 	}
 });
 
-Template.ActiveQuestion.helpers({
-	test: function(){
-		console.log("CAtive", this)
-	},
-	question: function(){
-		Question.findOne(Session.get("currentQuestion"));
-	}
-});
+// Template.ActiveQuestion.helpers({
+// 	test: function(){
+// 		console.log("CAtive", this)
+// 	},
+// 	question: function(){
+// 		Question.findOne(Session.get("currentQuestion"));
+// 	}
+// });
