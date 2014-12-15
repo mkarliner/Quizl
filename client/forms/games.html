@@ -1,8 +1,8 @@
 <template name="insertGameForm">
-  {{> quickForm collection="Games" id="insertGameForm" type="insert" buttonClasses="glyphicon glyphicon-ok btn btn-default" buttonContent=" " fields="name, status"}}
+  {{> quickForm collection="Games" id="insertGameForm" type="insert" buttonClasses="glyphicon glyphicon-ok btn btn-default" buttonContent="Save" fields="name, status"}}
 </template>
 
 
 <template name="updateGameForm">
-  {{> quickForm collection="Games" id="updateGameForm" type="update" doc=this class="qkForm" buttonClasses="glyphicon glyphicon-ok btn btn-default btn-tick" buttonContent="       " fields="name, instructions, status" }}
+  {{> quickForm collection="Games" id="updateGameForm" type="update" doc=this class="qkForm" buttonClasses="glyphicon glyphicon-ok btn btn-default btn-tick" buttonContent="Save" fields="name, instructions, status" }}
 </template>

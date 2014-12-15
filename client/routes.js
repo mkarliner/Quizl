@@ -122,3 +122,7 @@ Router.route("/scoreboard/:id", function() {
 		}
 	});
 });
+
+Router.route("/help", function(){
+	this.render("Help");
+}) ;

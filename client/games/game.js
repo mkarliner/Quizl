@@ -10,6 +10,15 @@ Template.Game.helpers({
 		u =  Meteor.users.findOne(uid).username;
 		console.log("UN: ",uid, u);
 		return u;
+	},
+	userStatus: function(userId) {
+		console.log("Status:", userId);
+		user = Meteor.users.findOne(userId)
+		if(user.status && user.status.online) {
+			return "";
+		} else {
+			return "off-line";
+		}
 	}
 
 });
@@ -206,7 +215,8 @@ Template.ActiveGame.helpers({
 			}
 		}
 		return "hidden-clue"
-	}
+	},
+
 	
 	
 });

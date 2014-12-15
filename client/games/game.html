@@ -5,7 +5,7 @@
 		</h1>
 		<h2 id="score">
 			{{#each scores}}
-			{{username userId}}: {{score}}
+			<span class="{{userStatus this.userId}}">{{username userId}}: {{score}}</span>
 			{{/each}}
 		</h2>
 	</div>

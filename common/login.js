@@ -6,7 +6,7 @@ SinglePageLogin.config({
     passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL',
     forbidClientAccountCreation: false,
     routeAfterLogin: '/start',
-    routeAfterSignUp: '/start',
+    routeAfterSignUp: '/help',
     forceLogin: true,
 	exceptRoutes: ["signup", "scoreboard", "admin/games"]
 });

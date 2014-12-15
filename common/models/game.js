@@ -28,6 +28,7 @@ Schemas.Game = new SimpleSchema({
 	status: {
 		type: String,
 		optional: true,
+		defaultValue: "Active",
 		allowedValues: ['Active', 'Inactive'],
 	    autoform: {
 	      options: [

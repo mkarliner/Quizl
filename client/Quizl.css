@@ -107,6 +107,9 @@ p {
 
 .on-line {
 	background-color: green;
-/*	color: green;*/
+}
+
+.off-line {
+	color: grey;
 }
 

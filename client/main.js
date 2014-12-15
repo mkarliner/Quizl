@@ -4,6 +4,7 @@ Meteor.startup(function () {
 
   });
   
+ 
 
 	Sounds['klaxon'] = new buzz.sound('/sounds/klaxon.mp3');
 	Sounds['boing'] = new buzz.sound('/sounds/boing.mp3');
