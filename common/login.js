@@ -1,6 +1,6 @@
 SinglePageLogin.config({
-    loginTitle: 'Quizl login',
-    signupTitle: 'Quizl sign up',
+    loginTitle: 'Quizzl login',
+    signupTitle: 'Quizzl sign up',
     forgotPasswordTitle: 'Retrieve password',
     canRetrievePassword: true,
     passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL',

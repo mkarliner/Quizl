@@ -2,13 +2,26 @@
 	
 	<div class="page-header">
 		<h1>{{name}}</h1>
-		<table>
-			{{#each members}}
-			<tr >
-				<td class="score">{{username}}</td>
-				<td>{{score this}}</td>
-			</tr>
-			{{/each}}
-		</table>
 	</div>
+	<div class="">
+		<p>{{this.currentQuestion.question}}</p>
+		{{#each this.currentQuestion.clues}}
+			<p>{{this}}</p>
+		{{/each}}
+		<div class="list-group">
+			{{#each members}}
+			<div class="list-group-item  clearfix ">
+				<span class="score">{{username}} </span>
+				<span class="pull-right list-group-item score">{{score this}}</span>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+
 </template>
+
+
+
+	
+	
+		

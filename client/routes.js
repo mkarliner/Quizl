@@ -28,7 +28,6 @@ Router.configure({
 
 
 Router.route('/start', function() {
-	this.layout('EntryLayout');
 	this.render('Start', {
 		data: function() {
 			games = Games.find({});

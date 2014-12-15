@@ -67,6 +67,14 @@ html {
 	font-height: 1.5em;
 }
 
+.score {
+	font-family:'Conv_TIMES_SQ',Serif;
+
+	font-color: red;
+	color: red;
+	font-size: 200%;
+}
+
 .btn-tick {
 	margin-left: auto;
 	margin-right: auto;
