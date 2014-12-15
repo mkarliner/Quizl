@@ -129,6 +129,9 @@ Template.Game.events({
 		q = Question.findOne(this.currentQuestion._id);
 		Meteor.call("changeScore", game._id, game.answeredBy, 1);
 	},
+	'click #resume-question': function(ev, temp) {
+		Meteor.call('startTimer', game);
+	},
 	'click #reset-question': function(ev, temp){
 		game = temp.data;
 		
@@ -163,6 +166,14 @@ Template.ActiveGame.helpers({
 		} else {
 			return "";
 		}
+	},
+	paused: function(){
+		if(this.questionState == "Paused") {
+			return  true;
+		} else {
+			return false;
+		}
+		
 	},
 	questions: function(){
 		return Question.find({game_id: this._id}, {sort: {order: 1}});

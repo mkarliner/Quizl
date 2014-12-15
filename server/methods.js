@@ -1,5 +1,19 @@
 var timerId;
 
+// function startTimer(game) {
+// 		console.log("Started question", game.name);
+// 		timerId = Meteor.setInterval(function(){
+// 			Games.update({_id: game._id}, {$inc: { timeLeft: -1}, $set: {questionState: 'Running'}});
+// 			game = Games.findOne(game._id);
+// 			console.log("Timer: ", timerId._idleStart, game.timeLeft)
+// 			if(game.timeLeft <= 0) {
+// 				console.log("Clearing timer", timerId._idleStart);
+// 				Games.update({_id: game._id}, { $set: {questionState: 'Idle', answeredBy: this.userId}});
+// 				Meteor.clearInterval(timerId);
+// 			}
+// 		}
+// 	}
+
 Meteor.methods({
 	resetGame: function(gameId) {
 		console.log("RESET: ", gameId);
