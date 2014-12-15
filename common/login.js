@@ -8,5 +8,5 @@ SinglePageLogin.config({
     routeAfterLogin: '/start',
     routeAfterSignUp: '/help',
     forceLogin: true,
-	exceptRoutes: ["signup", "scoreboard", "admin/games"]
+	exceptRoutes: ["signup", "scoreboard", "admin/games", "help"]
 });

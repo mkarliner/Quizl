@@ -55,8 +55,9 @@ Schemas.Game = new SimpleSchema({
 		  optional: true
 	  },
 	  maxTime: {
+		  label: "Time for questions",
 		  type: Number,
-	  	  defaultValue: 12
+	  	  defaultValue: 30
 	  },
 	  questionState: {
 		  type: String,

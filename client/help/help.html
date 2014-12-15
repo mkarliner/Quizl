@@ -1,0 +1,74 @@
+<template name="Help">
+<div class="-div">
+{{#markdown}}
+
+# Welcome to Quizzl!
+## Basics
+Quizzl is a real-time online quiz game for multiple players meant to be played in one room with a real person as the quizmaster.
+Contestants get a fixed amount of time to answer questions. 
+
+When a contestant has clicked their answer button they tell the quizmaster the answer, who decides if they have given the correct answer or not, and whether to give them points. 
+
+If they have answered wrong, the quizmaster can resume the timer on the question and allow someone else to answer.
+
+Questions can have multiple clues, which can be shown one at a time. The timer will only start when all the clues have been shown.
+
+For the geeks among you Quizzl is written on a platform called Meteor. 
+## Contestants
+Playing is simple.
+First create an account. You'll be shown the startup screen when you first enter the app.
+
+Next, join a game, you'll see a list of games when you sign in for the first time. Clicking
+on a game allows you to join it. You won't be able to play until the quizmaster has started the
+game though.
+
+When the game starts you'll be shown the first question, and maybe some clues. Then the countdown
+timer will start. You usually have 30 seconds to answer a question. A big green button will appear
+that allows you to answer the question. 
+
+When you answer a question, tell the quizmaster what the answer is. 
+
+_Remember: There is nowhere for you answer questions on the app, this is for playing with live people!_
+
+
+## Quizmasters
+### Becoming a quizmaster.
+To become a quizmaster, create an account and contact mike@modern-industry.com to be enabled as a quizmaster.
+
+Tip: It's best if the quizmaster uses a laptop or a tablet, as the quizmaster screens are bigger than the contestant screens.
+### Creating games and questions
+To create a new game, go to the bottom nav bar and click on 'Games'
+This will show the new game form. Choose a name for the game and decide if you want people to be able to immediately play the game or to be shown a holding screen(Active/Inactive). Click on save and you will be shown the question editor.
+
+For each question, enter the question, what ever clues you want (if any) and the answer. To enter more than one clue, press the '+' button under the last clue. The list of questions will appear under the form.
+
+When you have finished entering questions, click on the bottom nav 'Games' button, and you will be shown the game list. Clicking on a game allows you to enter it for playing.
+### Running games
+First make sure you have set your game to 'Active' so people can join it.
+
+When you get to the quizmaster panel, you'll see the name of
+your game and the name and scores of all the people who have joined it.
+Offline users will show up in grey, online in red.
+The top line of buttons do the following:
+
+- Reset - reset the whole game.
+- Question - go to the next question
+- Clue  - to to the next clue
+- Resume - restart the question timer.
+- Reveal - reveal the answer
+
+The next line of buttons allows you to add or subtract points from the contenstant who just answered.
+
+_Tip: You can give or take as many points as you feel you want to, just like quiz games on TV..._
+
+The third line of buttons allows you to edit the current game by making a new question or editing the current question.
+
+Note that not all the buttons show at all times, for instance, the 'Clue' button only shows if the question has clues.
+
+
+
+
+
+{{/markdown}}
+</div>
+</template>

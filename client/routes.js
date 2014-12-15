@@ -1,11 +1,13 @@
 Router.configure({
 
 	layoutTemplate: function() {
-		console.log("LO: ", (Roles.userIsInRole(Meteor.userId(), "quizmaster")));
+		// console.log("LO: ", (Roles.userIsInRole(Meteor.userId(), "quizmaster")));
 		if (Roles.userIsInRole(Meteor.userId(), "quizmaster")) {
 			return 'QuizmasterLayout';
-		} else {
+		} else if(Meteor.userId()) {
 			return 'ContestantLayout';
+		} else {
+			return "EntryLayout";
 		}
 	}
 });
@@ -26,6 +28,7 @@ Router.configure({
 
 
 Router.route('/start', function() {
+	this.layout('EntryLayout');
 	this.render('Start', {
 		data: function() {
 			games = Games.find({});
@@ -37,7 +40,7 @@ Router.route('/start', function() {
 
 
 Router.route('/', function() {
-	this.layout('ContestantLayout');
+	this.layout('EntryLayout');
 	Router.go('/start');
 });
 
@@ -124,5 +127,6 @@ Router.route("/scoreboard/:id", function() {
 });
 
 Router.route("/help", function(){
+	this.layout('ContestantLayout');
 	this.render("Help");
 }) ;
