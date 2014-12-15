@@ -4,5 +4,5 @@ Meteor.publish(null, function (){
 
 
 Meteor.publish("allUserData", function () {
-    return Meteor.users.find({}, {fields: {'roles': 1}});
+    return Meteor.users.find({}, {fields: {'roles': 1, status: 1}});
 });

@@ -6,6 +6,14 @@ Template.GameList.helpers({
 	} else {
 		console.log("No members")
 	}
+	},
+	userStatus: function(user) {
+		console.log("USER: ", user);
+		if(user.status && user.status.online) {
+			return "on-line";
+		} else {
+			return "";
+		}
 	}
 });
 

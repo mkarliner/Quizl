@@ -17,12 +17,12 @@
 <template name="GameList">
 	<ol class="list-group">
 		{{#each this}}
-			<li class="list-group-item" id="this._id">
+			<li class="list-group-item {{userStatus this}}" id="this._id">
 				
 				{{name}}
 				<span class="badge"><a href="/scoreboard/{{this._id}}">Scoreboard</a></span>
 				{{#each members}} 
-					<span class="badge">{{username}}</span>
+					<span class=" {{userStatus this}} label label-as-badge">{{username}}</span>
 					{{/each}}
 					{{#if isInRole 'quizmaster'}}
 			    	<span class="badge active"><a href="/games/{{this._id}}/edit">Edit</a></span>

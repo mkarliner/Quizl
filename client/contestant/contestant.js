@@ -36,6 +36,16 @@ Template.Contestant.helpers({
 		//console.log("left ",this.timeLeft);
 		return (this.timeLeft/this.maxTime)*100;
 	},
+	statusLeft: function() {
+		left = (this.timeLeft/this.maxTime)*100;
+		if(left < 20) {
+			return "progress-bar-danger";
+		} else if (left < 50) {
+			return "progress-bar-warning";
+		} else {
+			return "progress-bar-sucess";
+		}	
+	},
 	running: function() {
 		
 		if(this.questionState==="Running") {

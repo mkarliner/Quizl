@@ -1,13 +1,13 @@
 <template name="Game">
-	<div class="page-header">
+	<div class="quizmaster-header">
 		<h1>
 			{{this.name}}
-			<small>
-				{{#each scores}}
-				{{username userId}}: {{score}}
-				{{/each}}
-			</small>
 		</h1>
+		<h2 id="score">
+			{{#each scores}}
+			{{username userId}}: {{score}}
+			{{/each}}
+		</h2>
 	</div>
 
 	<div id="master-panel">
@@ -83,44 +83,46 @@
 
 	</div>
 	{{/if}}
-	<div  class="well">
-		<div class="well center-div">
-			<button class="btn btn-danger" id="reset-question">Reset Game</button>
+	<div  class="">
+		<div class=" center-div">
+			<button class="btn btn-xs btn-danger" id="reset-question">Reset</button>
 			{{#if moreQuestions }}
-			<button class="btn btn-primary" id="next-question">Next Question</button>
+			<button class="btn btn-xs btn-primary" id="next-question">Question</button>
 			{{/if}}
 			{{#if clues}}
-			<button class="btn btn-info" id="next-clue">Next Clue</button>
+			<button class="btn btn-xs btn-info" id="next-clue">Clue</button>
 			{{/if}}
-			<button class="btn btn-warning" id="reveal-answer">Reveal Answer</button>
+			<button class="btn btn-xs btn-warning" id="reveal-answer">Reveal</button>
 		</div>
 		
 		{{#if answeredBy}}
-		<div class="well center-div">
-			<button class="btn btn-danger" id="wrong-answer">-1  to {{answerer}}</button>
-			<button class="btn btn-success" id="correct-answer">+1 to {{answerer}}</button>
+		<div class=" center-div">
+			<p>
+				{{answerer}}
+				<button class="btn btn-xs btn-danger" id="wrong-answer">-1</button>
+				<button class="btn btn-xs btn-success" id="correct-answer">+1</button>
+			</p>
 		</div>
 		{{/if}}
-	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#insert-question" aria-expanded="true" aria-controls="demo">
+	<button type="button" class="btn btn-xs btn-default" data-toggle="modal" data-target="#insert-question" aria-expanded="true" aria-controls="demo">
 		<!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->New Question
 	</button>
-	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit-question" aria-expanded="true" aria-controls="demo">
+	<button type="button" class="btn btn-xs btn-default" data-toggle="modal" data-target="#edit-question" aria-expanded="true" aria-controls="demo">
 		<!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->Edit Current Question
 	</button>
 		{{> modalInsertQuestionForm }}
 		
 		{{#with fullQuestion}}
 			{{> modalEditQuestionForm }}
-			<div id="question" class="well">
+			<div id="question" class="">
 				<p> Question: {{question}} </p>
 				<div class="well fade in">
-				<p >{{totClues}}</p>
 				{{#each this.clues}}
 					<p class={{clueHidden this ..}}>* {{this}}</p>
 				{{/each}}
 				</div>
-				<div id="answer" class="well">
-					<p>Answer: {{this.currentQuestion.answer}}</p>
+				<div id="answer" class="">
+					<p>Answer: {{this.answer}}</p>
 				</div>
 
 				{{#if this.answeredBy}}

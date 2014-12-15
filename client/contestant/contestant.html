@@ -8,10 +8,10 @@
 <template name="Contestant">
 	
 	{{#if timeLeft}}
-	<div id="timer" class="well">
+	<div id="timer" class="">
 
 			<div class="progress">
-			  <div class="progress-bar" role="progressbar" aria-valuenow="{{percentLeft}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentLeft}}%;">
+			  <div class="progress-bar {{statusLeft}}" role="progressbar" aria-valuenow="{{percentLeft}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentLeft}}%;">
 			    {{timeLeft}} seconds left
 			  </div>
 			</div>
@@ -24,14 +24,16 @@
 	{{#if question}}
 	<div id="question" class="well">
 		<p> Question: {{question}} </p>
-		<div class="well fade in">
+		<div class=" fade in">
+		{{#if totClues}}
 		<p>{{totClues}}</p>
+		{{/if}}
 		{{#each this.currentQuestion.clues}}
 			<p>* {{this}}</p>
 		{{/each}}
 		</div>
 		{{#if this.currentQuestion.answer}}
-		<div id="answer" class="well">
+		<div id="answer" class="">
 			<p>Answer: {{this.currentQuestion.answer}}</p>
 		</div>
 		{{/if}}
