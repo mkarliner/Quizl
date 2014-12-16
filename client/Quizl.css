@@ -120,6 +120,10 @@ p {
 	margin-right: auto;
 }
 
+.warning {
+	color: red;
+}
+
 .on-line {
 	background-color: green;
 }
