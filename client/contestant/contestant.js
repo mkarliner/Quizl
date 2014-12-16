@@ -32,6 +32,14 @@ Template.Contestant.helpers({
 			return this.currentQuestion.totClues + " clues";
 		}
 	},
+	picture: function(fileId) {
+		console.log("Trying to find image", fileId);
+		image = Images.findOne({_id: fileId});
+		if (typeof image != 'undefined') {
+			return 	image.url();	
+		}
+		
+	},
 	percentLeft: function() {
 		//console.log("left ",this.timeLeft);
 		return (this.timeLeft/this.maxTime)*100;
