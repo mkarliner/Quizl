@@ -121,7 +121,10 @@
 				<p> Question: {{question}} </p>
 				<div class="well fade in">
 				{{#each this.clues}}
-					<p class={{clueHidden this ..}}>* {{this}}</p>
+					<p class={{clueHidden this ..}}>* {{this.text}}</p>
+					{{#if this.image}}
+						<img class="clue-image" src="{{picture this.image}}">
+					{{/if}}
 				{{/each}}
 				</div>
 				<div id="answer" class="">

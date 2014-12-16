@@ -19,7 +19,8 @@ Template.Game.helpers({
 		} else {
 			return "off-line";
 		}
-	}
+	},
+
 
 });
 
@@ -206,11 +207,19 @@ Template.ActiveGame.helpers({
 			return [];
 		}
 	}, 
+	picture: function(fileId) {
+		console.log("Trying to find image", fileId);
+		image = Images.findOne({_id: fileId});
+		if (typeof image != 'undefined') {
+			return 	image.url();	
+		}
+		
+	},
 	clueHidden: function(str, question){
-		console.log("CMP: ", this, str, question);
+		console.log("CMP: ", this.text, str, question);
 		game = Games.findOne(question.game_id);
 		for(var i=0; i<game.currentQuestion.clues.length; i++) {
-			if(game.currentQuestion.clues[i]==str) {
+			if(game.currentQuestion.clues[i].text==str.text) {
 				return "";
 			}
 		}

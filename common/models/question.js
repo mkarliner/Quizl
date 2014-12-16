@@ -2,6 +2,21 @@ Question = new Mongo.Collection("questions");
 
 Schemas = {};
 
+Schemas.Clue = new SimpleSchema({
+	text: {
+		type: String
+	},
+	image: {
+		type: String,
+		label: "Image",
+		optional: true,
+		autoform: {
+			type: "cfs-file",
+			collection: "images"
+		}
+	},
+});
+
 Schemas.Question = new SimpleSchema({
 	question: {
 		type: String,
@@ -9,7 +24,7 @@ Schemas.Question = new SimpleSchema({
 		max: 200
 	},
 	clues: {
-		type: [String],
+		type: [Schemas.Clue],
 		label: "Clues",
 		optional: true
 	},

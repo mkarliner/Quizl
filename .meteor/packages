@@ -13,8 +13,6 @@ aldeed:simple-schema
 aldeed:collection2
 aldeed:delete-button
 alanning:roles
-cfs:gridfs
-cfs:autoform
 accounts-base
 mizzao:bootstrap-3
 steeve:single-page-login
@@ -22,4 +20,7 @@ brentjanderson:buzz
 mrt:mongo-counter
 mizzao:user-status
 markdown
+cfs:autoform
+cfs:gridfs
+cfs:standard-packages
 

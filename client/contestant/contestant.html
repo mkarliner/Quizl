@@ -29,7 +29,10 @@
 		<p>{{totClues}}</p>
 		{{/if}}
 		{{#each this.currentQuestion.clues}}
-			<p>* {{this}}</p>
+			<p>* {{this.text}}</p>
+			{{#if this.image}}
+				<img class="clue-image" src="{{picture this.image}}">
+			{{/if}}
 		{{/each}}
 		</div>
 		{{#if this.currentQuestion.answer}}
