@@ -21,9 +21,9 @@
 				
 				{{name}}
 				<span class="badge"><a href="/scoreboard/{{this._id}}">Scoreboard</a></span>
-				{{#each members}} 
+				<!-- {{#each members}}
 					<span class=" {{userStatus this}} label label-as-badge">{{username}}</span>
-					{{/each}}
+				{{/each}} -->
 					{{#if isInRole 'quizmaster'}}
 			    	<span class="badge active"><a href="/games/{{this._id}}/edit">Edit</a></span>
 					<span class="badge active"><a href="/games/{{this._id}}/questions">Questions</a></span>
