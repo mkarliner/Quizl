@@ -144,3 +144,9 @@ p {
 	text-align: center;
 }
 
+#accounts-form {
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+

@@ -15,7 +15,6 @@ aldeed:delete-button
 alanning:roles
 accounts-base
 mizzao:bootstrap-3
-steeve:single-page-login
 brentjanderson:buzz
 mrt:mongo-counter
 mizzao:user-status
@@ -25,3 +24,4 @@ cfs:autoform
 cfs:gridfs
 cfs:standard-packages
 
+useraccounts:bootstrap

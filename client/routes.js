@@ -1,3 +1,5 @@
+AccountsTemplates.configureRoute('signIn');
+
 Router.configure({
 
 	layoutTemplate: function() {
@@ -13,19 +15,31 @@ Router.configure({
 });
 
 
+Router.onBeforeAction(function() {
+	console.log("Signup");
+	if (!Meteor.user()) {
+		Router.go("/login");
+		this.next();
+	} else {
+		this.next();
+	}
+}, { except: ["signup"]});
+
 // Router.onBeforeAction(function() {
 // 	console.log("Signup");
-// 	if (!Meteor.user()) {
-// 		Router.go("/login");
+// 	AccountsEntry.signInRequired(this);
 // 		this.next();
-// 	} else {
-// 		this.next();
-// 	}
 // }, { except: ["signup"]});
 
+Router.route("/login", function(){
+	this.render("Login");
+});
 
-
-
+Router.route("/logout", function(){
+	console.log("Loutout")
+	Meteor.logout();
+	Router.go("/start");
+});
 
 Router.route('/start', function() {
 	this.render('Start', {
