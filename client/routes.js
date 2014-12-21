@@ -32,7 +32,11 @@ Router.onBeforeAction(function() {
 // }, { except: ["signup"]});
 
 Router.route("/login", function(){
-	this.render("Login");
+	if (Meteor.user()) {
+		Router.go("/start");
+	} else {
+		this.render("Login");
+	}
 });
 
 Router.route("/logout", function(){
