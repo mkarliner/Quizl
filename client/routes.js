@@ -23,7 +23,7 @@ Router.onBeforeAction(function() {
 	} else {
 		this.next();
 	}
-}, { except: ["signup"]});
+}, { except: ["help"]});
 
 // Router.onBeforeAction(function() {
 // 	console.log("Signup");
