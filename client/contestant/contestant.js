@@ -74,6 +74,7 @@ Template.Contestant.events({
 		game = temp.data;
 		console.log("Button!");
 		Meteor.call('answerQuestion', game);
+		Sounds['ding'].play();
 	}
 })
 
